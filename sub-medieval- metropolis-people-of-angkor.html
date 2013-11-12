@@ -1,0 +1,116 @@
+<!-- i-C-a -->
+<div data-role="page" id="peopleangkor">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholder" style="padding-top:14px;"><h1>Who were the people of Angkor?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navpeople-content">
+         <p></p>
+        <p></p>			
+      </div>
+        
+      <div class="navpeoplebtn1">
+  <p><a href="sub-medieval- metropolis-people-of-angkor-mystery.html" data-transition="slide"><img src="css/images/9-12/medieval/mystery.png"></a></p>
+      </div>
+      <div class="navpeoplebtn2">
+        <p><a href="sub-medieval- metropolis-people-of-angkor-daugan.html" data-transition="slide" ><img src="css/images/9-12/medieval/dagoun.png"></a></p>
+      </div>
+      <div class="navpeoplebtn3">
+        <p><a href="sub-medieval- metropolis-people-of-angkor-myths.html" data-transition="slide" ><img src="css/images/9-12/medieval/myths.png"></a></p>
+      </div>
+      <div class="navpeoplebtn4">
+        <p><a href="sub-medieval- metropolis-people-of-angkor-water.html" data-transition="slide" ><img src="css/images/9-12/medieval/water.png"></a></p>
+      </div>
+	   <div class="navpeoplebtn5">
+        <p><a href="sub-medieval- metropolis-people-of-angkor-what.html" data-transition="slide" ><img src="css/images/9-12/medieval/angkorwat.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstoppeopleangkor"></div></div>
+    <div class="bwos"><div class="rwwos" id="peopleangkoraudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="peopleangkoraudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="peopleangkoraudiofbtn"></div></div>
+    <div id="actualaudio-peopleangkor" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-peopleangkor').html('<audio id="peopleangkoraudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://deftsoft.info/appvendo/mw/audio/medieval.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#peopleangkor").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-medieval- metropolis.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstoppeopleangkor").on('tap', function() {
+      if(!playing) {
+        peopleangkoraudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        peopleangkoraudio.pause(); volcanoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#peopleangkoraudioplbtn").on('tap', function() {
+      if(!playing) {
+        peopleangkoraudio.play();
+      } else {
+        peopleangkoraudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#peopleangkoraudiofbtn").on('tap', function() {
+      var ctime = peopleangkoraudio.currentTime;
+      peopleangkoraudio.currentTime = ctime + 10;
+    });
+    
+    $("#peopleangkoraudiobbtn").on('tap', function() {
+      var ctime = peopleangkoraudio.currentTime;
+      peopleangkoraudio.currentTime = ctime - 10;
+    });
+    
+    $("#peopleangkoraudiopsbtn").on('tap', function() {
+      peopleangkoraudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

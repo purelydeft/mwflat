@@ -1,0 +1,114 @@
+<!-- i-C-a -->
+<div data-role="page" id="medieval">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholder" style="padding-top:14px;"><h1>A Medieval Metropolis</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>Did you know that the city of Angkor was once the biggest in the whole world?</p>
+        <p>Just like Rome was the capital of the Roman civilisation, Angkor is the name we give both to the capital city and the culture of a South East Asian state that flourished between about 800 and 1400CE.  Sometimes people get the name of 'Angkor' mixed up with its most famous temple, 'Angkor Wat'.  Although Angkor Wat is the biggest temple, it is only one of hundreds of temples built at Angkor. Other big and famous temples include Preah Khan, Ta Prohm, the Bayon and the Bakong, but most of the temples were much smaller.  </p>
+        <p>Come and see what life was like at Angkor, and how archaeologists and historians have pieced together its past. Although much of Angkor has vanished forever, its memory lives on in the traditions, stories and identity of the Cambodian people today. </p>			
+      </div>
+        
+      <div class="navbtn1">
+  <p><a href="sub-medieval- metropolis-people-of-angkor.html" data-transition="slide"><img src="css/images/9-12/medieval/people.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-medieval- metropolis-world -around-angkor.html" data-transition="slide" ><img src="css/images/9-12/medieval/world.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-medieval- metropolis-everydaylife-angkor.html" data-transition="slide" ><img src="css/images/9-12/medieval/life.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-medieval- metropolis-where-dey-go.html" data-transition="slide" ><img src="css/images/9-12/medieval/angkor.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopmedieval"></div></div>
+    <div class="bwos"><div class="rwwos" id="medievalaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="medievalaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="medievalaudiofbtn"></div></div>
+    <div id="actualaudio-medieval" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-medieval').html('<audio id="medievalaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://deftsoft.info/appvendo/mw/audio/medieval.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#medieval").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("index.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopmedieval").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        bhaudio.pause(); volcanoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#medievalaudioplbtn").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+      } else {
+        bhaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#medievalaudiofbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime + 10;
+    });
+    
+    $("#medievalaudiobbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime - 10;
+    });
+    
+    $("#medievalaudiopsbtn").on('tap', function() {
+      bhaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,109 @@
+<!-- i-C-a -->
+<div data-role="page" id="wheredeygo">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholdervolcano" style="padding-top:14px;"><h1>Where did they go?</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navwherebig-content">
+         <p></p>
+        <p></p>
+         </div>
+        
+      <div class="navvolcanobigbtn1">
+  <p><a href="sub-medieval- metropolis-where-dey-go-religion.html" data-transition="slide"><img src="css/images/9-12/medieval/religion.png"></a></p>
+      </div>
+      <div class="navvolcanobigbtn2">
+        <p><a href="sub-medieval- metropolis-where-dey-go-legacy.html" data-transition="slide" ><img src="css/images/9-12/medieval/legacy.png"></a></p>
+      </div>
+      <div class="navvolcanobigbtn3">
+        <p><a href="sub-volcanoes-big & bad-krak-a-what-a.html" data-transition="slide" ><img src="css/images/9-12/medieval/background2.png"></a></p>
+      </div>
+ <div class="botlogobigholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopwheredeygo"></div></div>
+    <div class="bwos"><div class="rwwos" id="wheredeygoaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="wheredeygoaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="wheredeygoaudiofbtn"></div></div>
+    <div id="actualaudio-wheredeygo" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-volcano').html('<audio id="wheredeygoaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#wheredeygo").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-medieval- metropolis.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopwheredeygo").on('tap', function() {
+      if(!playing) {
+        wheredeygoaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        wheredeygoaudio.pause(); wheredeygoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#wheredeygoaudioplbtn").on('tap', function() {
+      if(!playing) {
+        wheredeygoaudio.play();
+      } else {
+        wheredeygoaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#wheredeygoaudiofbtn").on('tap', function() {
+      var ctime = wheredeygoaudio.currentTime;
+      wheredeygoaudio.currentTime = ctime + 10;
+    });
+    
+    $("#wheredeygoaudiobbtn").on('tap', function() {
+      var ctime = wheredeygoaudio.currentTime;
+      wheredeygoaudio.currentTime = ctime - 10;
+    });
+    
+    $("#wheredeygoaudiopsbtn").on('tap', function() {
+      wheredeygoaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navvolcanobigbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

@@ -1,0 +1,117 @@
+<!-- i-C-a -->
+<div data-role="page" id="bluesea">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholder" style="padding-top:14px;"><h1>The Deep Blue Sea</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>Let's explore the world's oceans, from the stunning shallows to the dark deep!</p>
+        <p>How do ocean tides work and what role does the Moon play?  </p>
+        <p>What incredible and weird creatures live in the ocean?</p>	
+		<p>How do oceans vary from the ends of the Earth to the Earth's middlei.e. the equator? </p>
+		<p>What is the future of our oceans? </p>		
+		<p>To shine a light on this vast, salty, and mysterious frontier, tap the buttons!</p>	
+      </div>
+        
+      <div class="navbtn1">
+  <p><a href="sub-bluesea- metropolis-people-of-angkor.html" data-transition="slide"><img src="css/images/9-12/bluesea/oceans.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-bluesea- metropolis-world -around-angkor.html" data-transition="slide" ><img src="css/images/9-12/bluesea/dive.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-bluesea- metropolis-everydaylife-angkor.html" data-transition="slide" ><img src="css/images/9-12/bluesea/poles.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-bluesea- metropolis-where-dey-go.html" data-transition="slide" ><img src="css/images/9-12/bluesea/future.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopmedieval"></div></div>
+    <div class="bwos"><div class="rwwos" id="blueseaaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="blueseaaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="blueseaaudiofbtn"></div></div>
+    <div id="actualaudio-bluesea" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-bluesea').html('<audio id="blueseaaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://deftsoft.info/appvendo/mw/audio/bluesea.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#bluesea").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("index.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopbluesea").on('tap', function() {
+      if(!playing) {
+        blueseaaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        blueseaaudio.pause(); volcanoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#blueseaaudioplbtn").on('tap', function() {
+      if(!playing) {
+        blueseaaudio.play();
+      } else {
+        blueseaaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#blueseaaudiofbtn").on('tap', function() {
+      var ctime = blueseaaudio.currentTime;
+      blueseaaudio.currentTime = ctime + 10;
+    });
+    
+    $("#blueseaaudiobbtn").on('tap', function() {
+      var ctime = blueseaaudio.currentTime;
+      blueseaaudio.currentTime = ctime - 10;
+    });
+    
+    $("#blueseaaudiopsbtn").on('tap', function() {
+     blueseaaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

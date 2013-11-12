@@ -1,0 +1,177 @@
+<!-- i-C-a -->
+<div id="superpoison" data-role="page">
+  <script src="js/hammer.js"></script>
+	<script src="js/jquery.hammer.js"></script>
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnbh"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnbh"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnbh"></div></div>
+  <div class="infobtnholder"><div class="infobtnbh"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnbh"></div></div>
+  <div class="menubtnholder"><div class="menubtnbh"></div></div>
+  <div class="bptitleholdervolcano" style="padding-top:14px;"><h1>What's going on?</h1></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-volcano"></div>
+      <div class="sidebarleft-half">
+        <div id="f1_container" style="visibility:hidden;position:absolute;left:100px;top:270px;">
+          <div id="f1_card">
+            <div class="front face">
+              <img id="dopple" src="css/images/5-8/volcanoes/placeholder-background.jpg">
+            </div>
+            <div id="backofcard" class="back face center" style="background:url(css/images/5-8/volcanoes/placeholder-background.jpg) no-repeat;">
+              <div style="width:100px;height:40px;position:relative;top:157px;left:200px;">
+                <input type="text" id="tfanswer3" style="background:rgba(255, 255, 255, 0.25);border:none;text-align:center;">
+              </div>
+              <div style="width:324px;height:62px;position:relative;top:156px;left:5x;">
+                <img id="backbtn3" src="css/images/5-8/Space/Black_Holes/Where_BH_Come/backbtn.png">
+                <img id="submitans3" src="css/images/5-8/Space/Black_Holes/Where_BH_Come/submitbtn.png">
+              </div>
+            </div>
+          </div><!--/f1+card-->
+        </div><!--/f1_container-->
+        <div id="zoomwrapper">    
+          <div id="pol1" class="pPiece" style="left:100px;top:270px;">
+             <img src="css/images/5-8/volcanoes/placeholder-background.jpg" alt="" />
+          </div>
+          <div id="pol2"class="pPiece" style="left:75px;top:290px;">
+            <img src="css/images/5-8/volcanoes/placeholder-background.jpg" alt="" />
+          </div>
+        </div><!--/zoomwrapper-->
+      </div>
+      
+      <div class="bpcontentvolcano">
+  <p>Ever wondered how we monitor volcanoes or predict eruptions?  First you need to find out about the volcano's history, so what's happened and when.  Next you have to go to the volcano and measure things there to tell you what's going on beneath your feet!</p>			
+  <p>ou can use video cameras to watch an eruption, Global Positioning Systems (GPS) and tilt meters to watch the ground move, or seismometers to measure earthquake activity.  You also need to test the type and amount of gases being released.  Finally, you can watch from above.  Satellites can be very useful to see changes big or small.
+</p>
+   <p>Such tools and measurements give volcanologists, seismologists and geophysicists (yep thats a lot of -ologists and -yicists ) information on eruption activity, whether the ground surface is changing or if earthquakes are happening.  This can tell us if magma or water is on the move and likely to erupt!</p>
+ </div>
+      
+      <div data-role="popup" id="imongnawong" data-position-to="window" data-overlay-theme="a" style="text-align:center;">
+        <div id="node-pop">
+          <p>We are all made of atoms, and the different kinds of atoms are called elements. Oxygen, hydrogen, carbon, iron and gold are all elements.</p>
+          <p>In our daily lives, elements remain unchanged. You cannot easily turn hydrogen into helium or carbon into oxygen.</p>
+          <p>But in the super hot and super dense core of a star, hydrogen atoms are fused together to become helium atoms. This is nuclear fusion, and this process powers all stars including our Sun.</p>
+        </div>
+      </div>
+      
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <div class="micbtnholder"><div class="micbtnbh"></div></div>
+  <div class="bbh"><div class="rwbh" id="superpoisonaudiobbtn"></div></div>
+  <div class="plbh"><div class="plpsbh" id="superpoisonaudioplbtn"></div></div>
+  <div class="fbh"><div class="fwbh" id="superpoisonaudiofbtn" ></div></div>
+  <div id="actualaudio-superpoison" style="visibility:hidden;"></div>
+  
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      $('div#pol1 > img').css("-webkit-transform", "rotate(0deg)");      
+      $('div#pol1').css("z-index", 1);
+      $('div#pol2 > img').css("-webkit-transform", "rotate(5deg)");
+      $("#f1_container").css("z-index", 0);      
+      
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-superpoison').html('<audio controls preload id="superpoisonaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/superpoison.mp3" type="audio/mpeg"></audio>');
+      } 
+         
+    
+      $("#superpoison").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause();bgsoundbh.currentTime = 0; });
+    
+    
+    $('#start2').on('click', function() {
+    	$('#actualaudio2').show();
+      var oldHeight = $('#node-body-holder').height();
+      var newHeight = oldHeight - $('#actualaudio2').height();
+      $('#node-body-holder').height(newHeight);
+    });
+    
+    $('#startpop').on('click', function() {
+    	$('#actualaudiopop').show();
+    });
+    
+    $("#submitans3").on('tap', function() {
+      var tfans3 = $('#tfanswer3').val();
+      if(tfans3.toLowerCase() == "true") {
+        alert("Correct, you've earned 100 MPoints.");
+      } else {
+        alert("Sorry, that's not right, try again...");
+      }
+    });
+    
+    function goBack() {
+      $.mobile.changePage("sub-volcanoes-big & bad-superbaddies-not-dead-what going on.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    //$("#pol1").on('tap', function() {
+    //  $.mobile.changePage("sub-space-bh-superpoisonpage.html", {transition: "slide"});
+  //  });
+    $("#pol2").on('tap', function() {
+      $('#f1_container').css({"visibility":"visible", "z-index":10});
+      $(this).css({"visibility":"hidden"});
+      $('#f1_card').css({"-webkit-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(180deg)"});
+      $('#f1_card').css({"transform": "rotateY(180deg)"});
+      //$("#hittites").swipe("disable");
+      //$("#dopple").css({"visibility":"hidden"});
+    });
+    $("#backbtn3").on('tap', function() {
+      $('#f1_card').css({"-webkit-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-moz-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"-o-transform": "rotateY(0deg)"});
+      $('#f1_card').css({"transform": "rotateY(0deg)"});
+      setTimeout(function() {
+        $("#pol2").css({"visibility":"visible", "z-index":3});
+        $('#f1_container').css({"visibility":"hidden", "z-index":0});
+      }, 1000);
+      //$("#hittites").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+      //$("#hittites").swipe("enable");
+    });
+    /* ******************** */
+    $("#superpoisonaudioplbtn").on('tap', function() {
+      //superpoisonaudio.play();
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      if(!playing) {
+        superpoisonaudio.play();
+        $('.micbtnbh').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        superpoisonaudio.pause();
+        $('.micbtnbh').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#superpoisonaudiofbtn").on('tap', function() {
+      var ctime = superpoisonaudio.currentTime;
+      superpoisonaudio.currentTime = ctime + 10;
+    });
+    
+    $("#superpoisonaudiobbtn").on('tap', function() {
+      var ctime = superpoisonaudio.currentTime;
+      superpoisonaudio.currentTime = ctime - 10;
+    });
+    
+    $("#superpoisonaudiopsbtn").on('tap', function() {
+      superpoisonaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script><script src="js/twocardLogic.js"></script>
+</div>

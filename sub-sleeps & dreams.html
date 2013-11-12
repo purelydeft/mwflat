@@ -1,0 +1,115 @@
+<!-- i-C-a -->
+<div data-role="page" id="sleeps">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholder" style="padding-top:14px;"><h1>Sleep and Dreams</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="nav-content">
+        <p>Dogs do it.  Dolphins do it.  Ants do it.  We do it.  Even dinosaurs did it.  Every living thing on Earth sleeps in one way or another. </p>
+        <p>But why do we sleep?  And why do we dream?  These are still great mysteries of science. </p>
+        <p>We do know that our bodies need sleep just like we need food and water.  Without sleep, we cannot survive. Sleep is important for learning, playing sport, staying       healthy and being happy.</p>
+        <p>So how do we know if we are getting the sleep our body and brain needs?  What happens if we don't get enough sleep?  And why is it that some people can remember their dreams but others can't?</p>
+       				</div>
+        
+      <div class="navbtn1">
+  <p><a href="sub-sleeps & dreams-broken-sleep.html" data-transition="slide"><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-volcanoes-living wid volcano.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-volcano-finding volcanoes.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-volcanoes-rumblingfrmdeep.html" data-transition="slide" ><img src="css/images/9-12/sleep_dreams/background2.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopsleeps"></div></div>
+    <div class="bwos"><div class="rwwos" id="sleepsaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="sleepsaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="sleepsaudiofbtn"></div></div>
+    <div id="actualaudio-sleeps" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-sleeps').html('<audio id="sleepsaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#sleeps").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopsleeps").on('tap', function() {
+      if(!playing) {
+        volcanoaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        volcanoaudio.pause(); volcanoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#sleepsaudioplbtn").on('tap', function() {
+      if(!playing) {
+        volcanoaudio.play();
+      } else {
+        volcanoaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#sleepsaudiofbtn").on('tap', function() {
+      var ctime = volcanoaudio.currentTime;
+      volcanoaudio.currentTime = ctime + 10;
+    });
+    
+    $("#sleepsaudiobbtn").on('tap', function() {
+      var ctime = volcanoaudio.currentTime;
+      volcanoaudio.currentTime = ctime - 10;
+    });
+    
+    $("#sleepsaudiopsbtn").on('tap', function() {
+      volcanoaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

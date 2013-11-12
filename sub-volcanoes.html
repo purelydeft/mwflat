@@ -1,0 +1,118 @@
+<!-- i-C-a -->
+<div data-role="page" id="volcanoworld">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholdervolcano" style="padding-top:14px;"><h1>Volcanoes</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navvolcano-content">
+        <p>Welcome to our Exploding Earth!</p>
+        <p>Come and explore the hot topic of volcanoes.</p>
+        <p>What is a volcano?</p>
+        <p>Is there more than one type?</p>
+        <p>What are some of the biggest and baddest volcanoes?</p>
+        <p>What would it be like to live with volcanoes? Do volcanoes die?</p>
+        <p>Strap in and check out the story, images and explosive videos!</p>						
+      </div>
+        
+      <div class="navbtn1">
+  <p><a href="sub-volcanoes-big & bad.html" data-transition="slide"><img src="css/images/9-12/volcanoworld/biggestbaddest.png"></a></p>
+      </div>
+      <div class="navbtn2">
+        <p><a href="sub-volcanoes-living wid volcano.html" data-transition="slide" ><img src="css/images/9-12/volcanoworld/livingwidvolcanoes.png"></a></p>
+      </div>
+      <div class="navbtn3">
+        <p><a href="sub-volcano-finding volcanoes.html" data-transition="slide" ><img src="css/images/9-12/volcanoworld/findingvolcanoes.png"></a></p>
+      </div>
+      <div class="navbtn4">
+        <p><a href="sub-volcanoes-rumblingfrmdeep.html" data-transition="slide" ><img src="css/images/9-12/volcanoworld/rumblinginddeep.png"></a></p>
+      </div>
+        
+      <div class="botlogoholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopvolcano"></div></div>
+    <div class="bwos"><div class="rwwos" id="volcanoaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="volcanoaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="volcanoaudiofbtn"></div></div>
+    <div id="actualaudio-volcano" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-volcano').html('<audio id="volcanoaudio" controls preload onpause="playvolcano()" onplay="pausevolcano()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#volcanoworld").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopvolcano").on('tap', function() {
+      if(!playing) {
+        volcanoaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        volcanoaudio.pause(); volcanoaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#volcanoaudioplbtn").on('tap', function() {
+      if(!playing) {
+        volcanoaudio.play();
+      } else {
+        volcanoaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#volcanoaudiofbtn").on('tap', function() {
+      var ctime = volcanoaudio.currentTime;
+      volcanoaudio.currentTime = ctime + 10;
+    });
+    
+    $("#volcanoaudiobbtn").on('tap', function() {
+      var ctime = volcanoaudio.currentTime;
+      volcanoaudio.currentTime = ctime - 10;
+    });
+    
+    $("#volcanoaudiopsbtn").on('tap', function() {
+      volcanoaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

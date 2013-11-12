@@ -1,0 +1,112 @@
+<!-- i-C-a -->
+<div data-role="page" id="living">
+  <script src="js/slidebarwos.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnwos"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnwos"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnwos"></div></div>
+  <div class="infobtnholder"><div class="infobtnwos"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnwos"></div></div>
+  <div class="menubtnholder"><div class="menubtnwos"></div></div>
+  
+  <div class="navtitleholdervolcano" style="padding-top:14px;"><h1>Living with volcanoes</h1></div>
+  
+    <div data-role="content" class="kidzcontent">
+      <div class="navvolcanobig-content">
+        <p>Some volcanic eruptions on our Earth have been bigger and far more destructive than many others.</p> 
+		<p>Before we look at these, it's important to know how volcanoes are measured and compared.  Volcanologists use the Volcanic Explosivity Index or VEI scale.  It measures the amount (volume) of erupted products, the height of the eruption cloud above the volcano and how long the eruption takes.</p>
+ <p>The scale is logarithmic.  This means each time you go up a level, the eruption is ten times greater!  So a VEI 6 eruption like Mt Pinatubo, in the Philippines in 1991, was ten times BIGGER than a VEI 5 eruption like the Mt St Helens eruption in the United States of America in 1980!</p>
+ <p> Tap on the buttons below to learn about a couple of the biggest eruptions in recorded history and a few that were so super-bad they changed the face of the Earth.</p>						
+      </div>
+        
+      <div class="navvolcanobigbtn1">
+        <!--<p><a href="sub-space-bh-whatisbh.html" data-transition="slide"><img src="css/images/5-8/Space/Black_Holes/whatbhbtn.png"></a></p>-->
+        <p><a href="sub-volcano-living-volcano-cranky-neighbour.html" data-transition="slide"><img src="css/images/9-12/volcanoworld/neighbour.png"></a></p>
+      </div>
+      <div class="navvolcanobigbtn2">
+        <p><a href="sub-volcano-living-volcano-death-of-volcano.html" data-transition="slide" ><img src="css/images/9-12/volcanoworld/death.png"></a></p>
+      </div>
+      <div class="navvolcanobigbtn3">
+        <p><a href="sub-volcano-living-volcano-sparkly.html" data-transition="slide" ><img src="css/images/9-12/volcanoworld/sparkly.png"></a></p>
+      </div>
+ <div class="botlogobigholder"><a href="home.html" class="homelinkbh"><img src="css/images/9-12/The_Wonders_of_Science/bottomhomewos.png"></a></div>
+    </div> <!-- end content -->  
+    
+  
+  <!--<div class="audiopanel">-->
+    <div class="micbtnholder"><div class="micbtnwos" id="playstopliving"></div></div>
+    <div class="bwos"><div class="rwwos" id="livingaudiobbtn"></div></div>
+    <div class="plwos"><div class="plpswos" id="livingaudioplbtn"></div></div>
+    <div class="fwos"><div class="fwwos" id="livingaudiofbtn"></div></div>
+    <div id="actualaudio-living" style="visibility:hidden;"></div>
+  <!--</div>-->
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+    (function() {
+      playing = false;
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-living').html('<audio id="livingaudio" controls preload onpause="playbh()" onplay="pausebh()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/RevisedIntro.mp3" type="audio/mpeg"></audio>');
+      } 
+    
+      $("#living").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+    
+    function goBack() {
+      $.mobile.changePage("sub-space.html", {transition: "slide", reverse: true });
+      bgsoundbh.pause();
+      bgsoundbh.currentTime = 0;
+      spacesoundbg.play();
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#playstopliving").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+        $('.micbtnwos').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        bhaudio.pause(); bhaudio.currentTime = 0;
+        $('.micbtnwos').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#livingaudioplbtn").on('tap', function() {
+      if(!playing) {
+        bhaudio.play();
+      } else {
+        bhaudio.pause();
+      }
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+    });
+    
+    $("#livingaudiofbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime + 10;
+    });
+    
+    $("#livingaudiobbtn").on('tap', function() {
+      var ctime = bhaudio.currentTime;
+      bhaudio.currentTime = ctime - 10;
+    });
+    
+    $("#livingaudiopsbtn").on('tap', function() {
+      bhaudio.pause();
+      //$(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+    
+    $('.navbtn1').on('tap', function() { 
+      nav1Effects(); 
+    });
+  </script>
+</div> <!--//home-->

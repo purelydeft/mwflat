@@ -1,0 +1,92 @@
+<!-- i-C-a -->
+<div id="big-badfrom" data-role="page">
+  <script src="js/slidebarbh.js"></script>
+  <div class="menuhousing"></div>
+  <div class="homebtnholder"><div class="homebtnvolcano"></div></div>
+  <div class="mpbtnholder"><div class="mpbtnvolcano"></div></div>
+  <div class="cpbtnholder"><div class="cpbtnvolcano"></div></div>
+  <div class="infobtnholder"><div class="infobtnvolcano"></div></div>
+  <div class="credsbtnholder"><div class="credsbtnvolcano"></div></div>
+  <div class="menubtnholder"><div class="menubtnvolcano"></div></div>
+  <div id="spacechar">&nbsp;
+    <div data-role="content" class="kidzcontent">
+      <div class="v-volcano"></div>
+      <div class="sidebarleft-half">
+        <div id="sgl" style="width:175px;height:160px;left:96px;top:76px;background:transparent;position:absolute"></div>
+        <div id="snl" style="width:175px;height:160px;left:255px;top:385px;background:transparent;position:absolute"></div>
+ </div>
+      <div class="storypagetitlevolcano-ds"><h1>Super-baddies!</h1></div>
+      <div class="ds-storypagevolcano">
+        <p>Many volcanic eruptions have been bad but some have been SUPER-bad!</p>
+        <p>They're commonly referred to as 'supervolcanoes'. They're the giant calderas that are at the top end of the VEI scale.  They spew over 400 cubic kilometres of material, enough to cause big issues not only for locals but the entire world!</p>
+		<p>Caldera volcanoes form when part of the Earth's crust catastrophically collapses into a shallow underlying magma chamber.  This causes a huge explosive eruption.  Calderas can be up to 100 hundred kilometres long!  It's the big ones, like those over 30 kilometres long, which can be really bad! </p>
+		<p>Calderas are sneaky.  When they erupt, material is spewed far away, sometimes thousands of kilometres!  It leaves the remaining caldera looking like a hole in the ground  so you may not know it's there until it erupts again!  Calderas may fill with water, forming a lake, like Lake Taupo that formed in the Taupo caldera depression in New Zealand!  Tap the super-baddie to find out about two super-caldera eruptions!</p>	  
+      </div>
+      <div class="botlogoholder"><a href="home.html" class="homelinkvolcano"><img src="css/images/5-8/bottomhomebh.png"></a></div>
+    </div><!--end of content-->
+  </div><!--/spacechar-->
+  
+  <div class="micbtnholder"><div class="micbtnvolcano"></div></div>
+  <div class="bvolcano"><div class="rwvolcano" id="big-badfromaudiobbtn"></div></div>
+  <div class="plvolcano"><div class="plpsvolcano" id="big-badfromaudioplbtn"></div></div>
+  <div class="fvolcano"><div class="fwvolcano" id="big-badfromaudiofbtn" ></div></div>
+  <div id="actualaudio-big-badfrom" style="visibility:hidden;"></div>
+  <script>
+    sound = new Audio(); // 'sound' is now an audio object
+    var playing;
+        (function() {
+          playing = false;
+           /* $('#node-body-minoans').html(data[0].Body);*/
+      if(sound.canPlayType('audio/mpeg')) {
+        $('#actualaudio-big-badfrom').html('<audio controls preload id="big-badfromaudio" onpause="pausedaudio()" onplay="pausebg()"><source src="http://back.uvmate.com/sites/default/files/subjectsaudio/WhereBlackHolesComeFrom.mp3" type="audio/mpeg"></audio>');
+      } 
+      
+      $("#big-badfrom").swipe( { swipeRight:goBack, allowPageScroll:"auto"} );
+    })();
+    
+    $("#sgl").on('tap', function() { $.mobile.changePage("sub-volcanoes-big & bad-superbaddies-poison-cloud.html", {transition:"slide"}); });
+    $("#snl").on('tap', function() { $.mobile.changePage("sub-volcano-big & bad-superbaddies-not-dead.html", {transition:"slide"}); });
+     
+   $('.homelinkbh').on('tap', function() { mainaudiobg.play(); bgsoundbh.pause(); bgsoundbh.currentTime = 0;});
+   function goBack() {
+      $.mobile.changePage("sub-volcanoes.html");
+    }
+    
+    function pausedaudio() {
+      bgsoundbh.play();
+    }
+    
+    function pausebg() {
+      bgsoundbh.pause();
+    }
+    /* ******************** */
+    $("#big-badfromaudioplbtn").on('tap', function() {
+      //comefromaudio.play();
+      //$(".audiopanel").css({"backgroundPosition":"-197px 0px"});
+      if(!playing) {
+        big-badfromaudio.play();
+        $('.micbtnvolcano').css('background-position-x', '-81px');
+        playing = true;
+      } else {
+        comefromaudio.pause();
+        $('.micbtnvolcano').css('background-position-x', '0px');
+        playing = false;
+      }
+    });
+    
+    $("#big-badfromaudiofbtn").on('tap', function() {
+      var ctime = comefromaudio.currentTime;
+      big-badfromaudio.currentTime = ctime + 10;
+    });
+    
+    $("big-badfromaudiobbtn").on('tap', function() {
+      var ctime = comefromaudio.currentTime;
+      big-badfromaudio.currentTime = ctime - 10;
+    });
+    
+    $("#big-badfromaudiopsbtn").on('tap', function() {
+      big-badfromaudio.pause();
+      $(".audiopanel").css({"backgroundPosition":"0px 0px"});
+    });
+  </script>
+</div>
